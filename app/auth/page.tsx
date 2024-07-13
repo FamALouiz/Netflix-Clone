@@ -1,23 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 export default function AuthPage() {
   // States
-  const [rememberMe, setRememberMe] = useState(false);
+  const [rememberMe, setRememberMe]: [
+    boolean,
+    Dispatch<SetStateAction<boolean>>
+  ] = useState(false);
 
   // Handlers
-  const handleSignIn = () => {
+  const handleSignIn: () => void = () => {
     console.log("Sign In");
   };
-  const handleUseSignInCode = () => {
+  const handleUseSignInCode: () => void = () => {
     console.log("Use Sign In Code");
   };
-  const handleForgottenPassword = () => {
+  const handleForgottenPassword: () => void = () => {
     console.log("Forgotten Password");
   };
 
-  const handleSignUp = () => {
+  const handleSignUp: () => void = () => {
     console.log("Sign Up");
   };
 
