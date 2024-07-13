@@ -1,4 +1,16 @@
+"use client";
+
 export default function AuthPage() {
+  const handleSignIn = () => {
+    console.log("Sign In");
+  };
+  const handleUseSignInCode = () => {
+    console.log("Use Sign In Code");
+  };
+  const handleForgottenPassword = () => {
+    console.log("Forgotten Password");
+  };
+
   return (
     <div className="h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
       <div className="bg-black w-full h-full bg-opacity-50">
@@ -26,7 +38,10 @@ export default function AuthPage() {
             />
           </div>
           <div className="flex justify-center py-2">
-            <button className="bg-red-600 text-white w-4/5 h-12 rounded-lg font-sans">
+            <button
+              className="bg-red-600 text-white w-4/5 h-12 rounded-lg font-sans"
+              onClick={handleSignIn}
+            >
               Sign In
             </button>
           </div>
@@ -34,12 +49,23 @@ export default function AuthPage() {
             <p className="text-zinc-400">OR</p>
           </div>
           <div className="flex justify-center py-2">
-            <button className="bg-zinc-800 text-white w-4/5 h-12 rounded-lg font-sans">
+            <button
+              className="bg-zinc-800 text-white w-4/5 h-12 rounded-lg font-sans"
+              onClick={handleUseSignInCode}
+            >
               Use a Sign-In Code
             </button>
           </div>
           <div className="flex justify-center py-2">
-            <p className="text-white">Forgot Password?</p>
+            <p
+              className="text-white"
+              onClick={handleForgottenPassword}
+              style={{
+                cursor: "pointer",
+              }}
+            >
+              Forgot Password?
+            </p>
           </div>
         </div>
       </div>
