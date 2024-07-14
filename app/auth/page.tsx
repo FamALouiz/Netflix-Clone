@@ -1,5 +1,6 @@
 "use client";
 
+import TextInput from "@/components/TextInput/TextInput";
 import { Dispatch, SetStateAction, useState } from "react";
 
 export default function AuthPage() {
@@ -41,23 +42,9 @@ export default function AuthPage() {
           </div>
 
           {/* Email input  */}
-          <div className="flex justify-center py-2">
-            <input
-              type="text"
-              placeholder="   Email or mobile number"
-              className="rounded-sm h-12 w-4/5 font-sans bg-zinc-900 text-white border-2"
-            />
-          </div>
-
+          <TextInput placeHolder={"Enter Email"} />
           {/* Password input */}
-          <div className="flex justify-center py-2">
-            <input
-              type="text"
-              placeholder="   Password"
-              className="rounded-sm h-12 w-4/5 font-sans bg-zinc-900 text-white border-2"
-            />
-          </div>
-
+          <TextInput placeHolder={"Password"} />
           {/* Sign In button */}
           <div className="flex justify-center py-2">
             <button
