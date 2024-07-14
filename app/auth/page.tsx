@@ -1,6 +1,7 @@
 "use client";
 
 import TextInput from "@/components/TextInput/TextInput";
+import axios from "axios";
 import { Dispatch, SetStateAction, useState } from "react";
 
 export default function AuthPage() {
@@ -16,7 +17,20 @@ export default function AuthPage() {
 
   // Handlers
   const handleSignIn: () => void = () => {
-    console.log("Sign In");
+    const signInURL: string = process.env.NEXT_PUBLIC_SIGN_IN_URL || "";
+    const signInInformation = {
+      email: email,
+      password: password,
+    };
+    const payload = JSON.stringify(signInInformation);
+
+    // Handle sign in
+    axios
+      .post(signInURL, payload)
+      .then((response) => response.data)
+      .then((data) => console.log(data));
+
+    // Handle Sign in Logic
   };
   const handleUseSignInCode: () => void = () => {
     console.log("Use Sign In Code");
@@ -51,12 +65,14 @@ export default function AuthPage() {
             type={"text"}
             onChange={setEmail}
           />
+
           {/* Password input */}
           <TextInput
             placeHolder={"Password"}
             type={"password"}
             onChange={setPassword}
           />
+
           {/* Sign In button */}
           <div className="flex justify-center py-2">
             <button
