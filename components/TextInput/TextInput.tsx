@@ -1,12 +1,18 @@
+import { useState } from "react";
 import TextInputProp from "./TextInputProp";
 
 export default function TextInput(params: TextInputProp) {
-  const { placeHolder } = params;
+  const { placeHolder, type, onChange } = params;
+  const [content, setContent] = useState("");
   return (
     <div className="flex justify-center py-2">
       <input
         id={placeHolder}
-        type="text"
+        type={type}
+        onChange={(e) => {
+          setContent(e.target.value);
+          onChange(e.target.value);
+        }}
         placeholder=" "
         className="rounded-sm 
         h-14 w-4/5 
@@ -19,9 +25,10 @@ export default function TextInput(params: TextInputProp) {
         text-sm
         peer"
       />
-      <label
-        htmlFor={placeHolder}
-        className="
+      {!content && (
+        <label
+          htmlFor={placeHolder}
+          className="
         absolute
         justify-start
         -translate-x-60     
@@ -31,11 +38,11 @@ export default function TextInput(params: TextInputProp) {
         transform
         origin-[0]
         peer-focus:-translate-y-4
-        peer-focus:scale-50
-        "
-      >
-        {placeHolder}
-      </label>
+        peer-focus:scale-50"
+        >
+          {placeHolder}
+        </label>
+      )}
     </div>
   );
 }

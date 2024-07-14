@@ -9,6 +9,10 @@ export default function AuthPage() {
     boolean,
     Dispatch<SetStateAction<boolean>>
   ] = useState(false);
+  const [email, setEmail]: [string, Dispatch<SetStateAction<string>>] =
+    useState("");
+  const [password, setPassword]: [string, Dispatch<SetStateAction<string>>] =
+    useState("");
 
   // Handlers
   const handleSignIn: () => void = () => {
@@ -42,9 +46,17 @@ export default function AuthPage() {
           </div>
 
           {/* Email input  */}
-          <TextInput placeHolder={"Enter Email"} />
+          <TextInput
+            placeHolder={"Enter Email"}
+            type={"text"}
+            onChange={setEmail}
+          />
           {/* Password input */}
-          <TextInput placeHolder={"Password"} />
+          <TextInput
+            placeHolder={"Password"}
+            type={"password"}
+            onChange={setPassword}
+          />
           {/* Sign In button */}
           <div className="flex justify-center py-2">
             <button
