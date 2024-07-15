@@ -56,6 +56,13 @@ export default function AuthPage() {
     console.log("Sign Up");
   };
 
+  // Adding event listener for Enter key
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      handleSignIn();
+    }
+  });
+
   return (
     <div className="h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
       {/* Logo */}
