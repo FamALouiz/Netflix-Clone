@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Profile from "./profile";
+import ProfileItem from "@/components/ProfileItem/ProfileItem";
 
 export default function ProfilePage() {
   const [profiles, setProfiles] = useState([]);
@@ -27,11 +28,12 @@ export default function ProfilePage() {
 
   return (
     <div>
-      {profiles.map((profile: Profile, idx: number) => {
+      {profiles.map((profile: Profile) => {
         return (
-          <h1 key={idx} className="text-white">
-            {profile.firstName} {profile.lastName}
-          </h1>
+          <ProfileItem
+            firstName={profile.firstName}
+            lastName={profile.lastName}
+          />
         );
       })}
     </div>
