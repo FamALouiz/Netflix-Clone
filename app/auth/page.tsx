@@ -37,7 +37,8 @@ export default function AuthPage() {
       .post(signInURL, payload)
       .then((response) => {
         if (response.status === 200 || response.status === 201) {
-          router.push("/");
+          const userId = response.data.userId;
+          router.push(`/profiles/${userId}`);
         } else {
           console.log("Failed to sign in");
         }
