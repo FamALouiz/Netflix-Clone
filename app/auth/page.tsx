@@ -2,6 +2,7 @@
 
 import TextInput from "@/components/TextInput/TextInput";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
 
 export default function AuthPage() {
@@ -14,6 +15,7 @@ export default function AuthPage() {
     useState("");
   const [password, setPassword]: [string, Dispatch<SetStateAction<string>>] =
     useState("");
+  const router = useRouter();
 
   // Handlers
   const handleSignIn: () => void = () => {
@@ -22,15 +24,25 @@ export default function AuthPage() {
       email: email,
       password: password,
     };
-    const payload = JSON.stringify(signInInformation);
+
+    const payload = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: signInInformation,
+    };
 
     // Handle sign in
     axios
       .post(signInURL, payload)
-      .then((response) => response.data)
-      .then((data) => console.log(data));
-
-    // Handle Sign in Logic
+      .then((response) => {
+        if (response.status === 200 || response.status === 201) {
+          router.push("/");
+        } else {
+          console.log("Failed to sign in");
+        }
+      })
+      .catch((error) => console.log(error));
   };
   const handleUseSignInCode: () => void = () => {
     console.log("Use Sign In Code");
