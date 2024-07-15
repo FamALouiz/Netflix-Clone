@@ -1,6 +1,6 @@
 interface Profile {
-  firstName: String;
-  lastName: String;
+  firstName: string;
+  lastName: string;
   id?: Number;
 }
 
