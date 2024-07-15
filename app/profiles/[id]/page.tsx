@@ -27,7 +27,7 @@ export default function ProfilePage() {
   }, []);
 
   return (
-    <div>
+    <div className="w-full h-full flex justify-center items-center">
       {profiles.map((profile: Profile) => {
         return (
           <ProfileItem
