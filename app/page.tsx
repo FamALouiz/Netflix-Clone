@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import checkIfUserIsSignedInAndCookieSaved from "./handlers";
 import { useRouter } from "next/navigation";
+import Navbar from "@/components/Navbar/Navbar";
 
 export default function Home() {
   const router = useRouter();
@@ -16,5 +17,9 @@ export default function Home() {
       router.push("/auth");
     }
   }, []);
-  return <div className="w-full h-full"></div>;
+  return (
+    <div className="w-full h-full">
+      <Navbar />
+    </div>
+  );
 }
