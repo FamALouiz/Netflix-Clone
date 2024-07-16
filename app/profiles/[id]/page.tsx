@@ -27,15 +27,20 @@ export default function ProfilePage() {
   }, []);
 
   return (
-    <div className="w-full h-full flex justify-center items-center">
-      {profiles.map((profile: Profile) => {
-        return (
-          <ProfileItem
-            firstName={profile.firstName}
-            lastName={profile.lastName}
-          />
-        );
-      })}
+    <div className="w-full h-full flex flex-col justify-center items-center">
+      <div className="flex justify-center">
+        <h1 className="text-white text-3xl pb-3">Who's watching?</h1>
+      </div>
+      <div className="flex justify-center">
+        {profiles.map((profile: Profile) => {
+          return (
+            <ProfileItem
+              firstName={profile.firstName}
+              lastName={profile.lastName}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

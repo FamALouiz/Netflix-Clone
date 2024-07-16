@@ -1,20 +1,53 @@
+import { useRouter } from "next/navigation";
 import ProfileItemProp from "./ProfileItemProp";
 
 export default function ProfileItem(props: ProfileItemProp) {
   const { firstName, lastName, color } = props;
+  const router = useRouter();
 
-  const handleOnClick = () => {};
+  const handleOnClick = (e: any) => {
+    router.push("/");
+  };
 
   return (
     <div
-      className="flex-col justify-center aspect-square h-44 cursor-pointer"
+      className="flex-col
+      justify-center 
+      aspect-square 
+      h-44
+      cursor-pointer
+      group"
       onClick={handleOnClick}
     >
-      <div className="flex justify-center items-center">
-        <img src="/images/profile-icon.jpg" className="w-5/6 h-5/6" />
+      <div
+        className="flex 
+      justify-center 
+      items-center
+      border-2
+      border-opacity-0
+      rounded-sm
+      group-hover: border-white
+      group-hover:border-opacity-100
+      "
+      >
+        <img
+          src="/images/profile-icon.jpg"
+          className="rounded-sm"
+          alt="Profile"
+        />
       </div>
       <div className="flex justify-center pt-2">
-        <label className="text-center text-white font-sans text-2xl w-5/6 h-5/6 truncate">
+        <label
+          className="text-center 
+        text-neutral-400 
+        font-sans 
+        text-2xl 
+        w-5/6 
+        h-5/6 
+        truncate
+        group-hover:text-white
+        group-hover:cursor-pointer"
+        >
           {firstName.charAt(0) + "."} {lastName}
         </label>
       </div>

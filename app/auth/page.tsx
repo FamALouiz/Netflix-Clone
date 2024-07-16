@@ -38,6 +38,13 @@ export default function AuthPage() {
       .then((response) => {
         if (response.status === 200 || response.status === 201) {
           const userId = response.data.userId;
+
+          // Save cookie with data for 1 minute
+          const expirationTime = new Date();
+          expirationTime.setMinutes(expirationTime.getMinutes() + 1);
+          document.cookie = `userId=${userId}; expires=${expirationTime.toUTCString()}`;
+
+          // Redirect to profile page
           router.push(`/profiles/${userId}`);
         } else {
           console.log("Failed to sign in");
@@ -56,12 +63,14 @@ export default function AuthPage() {
     console.log("Sign Up");
   };
 
-  // Adding event listener for Enter key
-  window.addEventListener("keydown", (e) => {
+  const handleEnterClicked = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       handleSignIn();
     }
-  });
+  };
+
+  // Adding event listener for Enter key
+  window.addEventListener("keydown", handleEnterClicked);
 
   return (
     <div className="h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
