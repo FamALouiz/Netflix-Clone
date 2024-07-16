@@ -3,7 +3,7 @@
 import TextInput from "@/components/TextInput/TextInput";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 export default function AuthPage() {
   // States
@@ -63,14 +63,14 @@ export default function AuthPage() {
     console.log("Sign Up");
   };
 
-  useEffect(() => {
-    // Adding event listener for Enter key
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        handleSignIn();
-      }
-    });
-  }, []);
+  const handleEnterClicked = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleSignIn();
+    }
+  };
+
+  // Adding event listener for Enter key
+  window.addEventListener("keydown", handleEnterClicked);
 
   return (
     <div className="h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
