@@ -1,9 +1,13 @@
+import { useRouter } from "next/navigation";
 import ProfileItemProp from "./ProfileItemProp";
 
 export default function ProfileItem(props: ProfileItemProp) {
   const { firstName, lastName, color } = props;
+  const router = useRouter();
 
-  const handleOnClick = () => {};
+  const handleOnClick = (e: any) => {
+    router.push("/");
+  };
 
   return (
     <div

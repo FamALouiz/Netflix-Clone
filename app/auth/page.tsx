@@ -38,6 +38,13 @@ export default function AuthPage() {
       .then((response) => {
         if (response.status === 200 || response.status === 201) {
           const userId = response.data.userId;
+
+          // Save cookie with data for 1 minute
+          const expirationTime = new Date();
+          expirationTime.setMinutes(expirationTime.getMinutes() + 1);
+          document.cookie = `userId=${userId}; expires=${expirationTime.toUTCString()}`;
+
+          // Redirect to profile page
           router.push(`/profiles/${userId}`);
         } else {
           console.log("Failed to sign in");
