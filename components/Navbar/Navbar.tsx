@@ -1,8 +1,10 @@
 import { useRouter } from "next/navigation";
-import NavbarItem from "./NavbarItem/NavbarItem";
-import { SlArrowDown } from "react-icons/sl";
 import { useState } from "react";
+import { SlArrowDown, SlArrowUp, SlMagnifier } from "react-icons/sl";
+import { SlBell } from "react-icons/sl";
+import NavbarItem from "./NavbarItem/NavbarItem";
 import NavbarMiniMenu from "./NavbarMiniMenu/NavbarMiniMenu";
+import "./Navbar.css";
 
 export default function Navbar() {
   const router = useRouter();
@@ -37,7 +39,7 @@ export default function Navbar() {
   const handleMenuDownToggle = () => setMenuDown((prevValue) => !prevValue);
   return (
     <div className="flex flex-col">
-      <div className="flex flex-grow justify-start items-center w-full h-16 mt-2">
+      <div className="flex justify-start items-center w-full h-16 mt-2">
         <img
           src="/images/logo.png"
           className="w-32 h-8 mx-20 cursor-pointer"
@@ -45,8 +47,8 @@ export default function Navbar() {
           onClick={() => router.push("/")}
         />
         <div className="hidden lg:flex">
-          {navbarItemsProps.map((props) => {
-            return <NavbarItem {...props} />;
+          {navbarItemsProps.map((props: any, idx: number) => {
+            return <NavbarItem {...props} key={idx} />;
           })}
         </div>
         <div className="flex flex-col justify-start items-center">
@@ -57,11 +59,23 @@ export default function Navbar() {
             >
               Browse
             </p>
-            <SlArrowDown
-              className="w-3 h-3 text-white mx-2 mt-1 group-hover:cursor-pointer"
-              onClick={handleMenuDownToggle}
-            />
+            {menuDown && (
+              <SlArrowUp
+                className="navbar-icon mt-2"
+                onClick={handleMenuDownToggle}
+              />
+            )}
+            {!menuDown && (
+              <SlArrowDown
+                className="navbar-icon mt-2"
+                onClick={handleMenuDownToggle}
+              />
+            )}
           </div>
+        </div>
+        <div className="flex flex-grow justify-end items-center mx-20 gap-10">
+          <SlMagnifier className="navbar-icon" />
+          <SlBell className="navbar-icon" />
         </div>
       </div>
       <NavbarMiniMenu
