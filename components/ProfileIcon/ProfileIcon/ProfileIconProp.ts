@@ -1,4 +1,4 @@
-import ProfileColors from "./ProfileColors";
+import ProfileColors from "../ProfileColors";
 
 interface ProfileIconProp {
   firstName: string;
