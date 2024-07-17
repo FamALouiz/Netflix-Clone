@@ -17,21 +17,27 @@ export default function Navbar() {
       },
     },
     {
-      title: "About",
+      title: "Services",
       onClick: () => {
-        router.push("/about");
+        router.push("/services");
       },
     },
     {
-      title: "Contact",
+      title: "Films",
       onClick: () => {
-        router.push("/contact");
+        router.push("/films");
       },
     },
     {
-      title: "Login",
+      title: "My List",
       onClick: () => {
-        router.push("/auth");
+        router.push("/my-list");
+      },
+    },
+    {
+      title: "Browse by Language",
+      onClick: () => {
+        router.push("/browse-by-language");
       },
     },
   ];
@@ -73,13 +79,18 @@ export default function Navbar() {
             )}
           </div>
         </div>
-        <div className="flex flex-grow justify-end items-center mx-20 gap-10">
+        <div className="flex flex-grow justify-end items-center mx-20 gap-5">
           <SlMagnifier className="navbar-icon" />
           <SlBell className="navbar-icon" />
+          <div className="flex items-center gap-1 group">
+            <div className="navbar-icon  group-hover:cursor-pointer">
+              <SlArrowDown />
+            </div>
+          </div>
         </div>
       </div>
-      <NavbarMiniMenu
-        style={`flex 
+      <div
+        className={`flex 
           flex-col 
           justify-center 
           lg:hidden 
@@ -89,14 +100,12 @@ export default function Navbar() {
           pl-5 
           peer
           ${menuDown ? "opacity-50" : "opacity-0"}
-          ${
-            menuDown ? "bg-black" : "bg-netural-800"
-          } w-32 transition-height transition-opacity ${
-          menuDown ? "h-40" : "h-0"
+          ${menuDown ? "bg-black" : "bg-netural-800"} w-32 transition-all ${
+          menuDown ? "h-auto" : "h-0"
         }`}
-        items={navbarItemsProps}
-        menuDown={menuDown}
-      />
+      >
+        <NavbarMiniMenu items={navbarItemsProps} menuDown={menuDown} />
+      </div>
     </div>
   );
 }

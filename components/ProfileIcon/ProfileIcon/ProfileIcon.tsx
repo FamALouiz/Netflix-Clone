@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
-import ProfileItemProp from "./ProfileItemProp";
+import ProfileIconProp from "../ProfileIconProp";
 
-export default function ProfileItem(props: ProfileItemProp) {
+export default function ProfileIcon(props: ProfileIconProp) {
   const { firstName, lastName, color } = props;
   const router = useRouter();
 

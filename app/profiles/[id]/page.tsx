@@ -4,7 +4,7 @@ import axios from "axios";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Profile from "./profile";
-import ProfileItem from "@/components/ProfileItem/ProfileItem";
+import ProfileIcon from "@/components/ProfileIcon/ProfileIcon/ProfileIcon";
 
 export default function ProfilePage() {
   const [profiles, setProfiles] = useState([]);
@@ -34,7 +34,7 @@ export default function ProfilePage() {
       <div className="flex justify-center">
         {profiles.map((profile: Profile) => {
           return (
-            <ProfileItem
+            <ProfileIcon
               firstName={profile.firstName}
               lastName={profile.lastName}
             />

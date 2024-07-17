@@ -1,9 +1,9 @@
 import ProfileColors from "./ProfileColors";
 
-interface ProfileItemProp {
+interface ProfileIconProp {
   firstName: string;
   lastName: string;
   color?: ProfileColors;
 }
 
-export default ProfileItemProp;
+export default ProfileIconProp;
