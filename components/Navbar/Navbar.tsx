@@ -123,21 +123,16 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`flex 
-          flex-col 
-          justify-center 
+        className={`
+          drop-down
           lg:hidden 
           gap-3 
           py-2 
           ml-64 
           pl-5 
-          border-2
-        border-gray-500
-          rounded-md
           ${miniMenuDown ? "opacity-100" : "opacity-0"}
-          ${miniMenuDown ? "bg-black" : "bg-netural-800"} w-32 transition-all ${
-          miniMenuDown ? "h-auto" : "h-0"
-        }`}
+          ${miniMenuDown ? "bg-black" : "bg-netural-800"} 
+          ${miniMenuDown ? "h-auto" : "h-0"}`}
       >
         <NavbarMiniMenu
           items={miniScreenNavbarItemProps}
@@ -146,18 +141,10 @@ export default function Navbar() {
       </div>
       <div className="flex justify-end">
         <div
-          className={`flex
-      flex-col 
-      justify-center 
-      items-center 
+          className={`drop-down
       mr-16  
       gap-3 
       py-2 
-      w-32 
-      border-2
-      border-gray-500
-      rounded-md
-      transition-all 
       ${profileMenuDown ? "opacity-100" : "opacity-0"}
       ${profileMenuDown ? "bg-black" : "bg-netural-800"} 
       ${profileMenuDown ? "h-auto" : "h-0"}`}
