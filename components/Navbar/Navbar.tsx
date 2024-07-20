@@ -4,7 +4,7 @@ import { SlArrowDown, SlArrowUp, SlMagnifier } from "react-icons/sl";
 import { SlBell } from "react-icons/sl";
 import NavbarItem from "./NavbarItem/NavbarItem";
 import NavbarMiniMenu from "./NavbarMiniMenu/NavbarMiniMenu";
-import "./Navbar.css";
+import "../../public/styles/Navbar.css";
 import MiniProfileIcon from "../ProfileIcon/MiniProfileIcon/MiniProfileIcon";
 
 export default function Navbar() {
