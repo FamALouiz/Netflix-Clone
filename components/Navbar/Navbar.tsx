@@ -131,7 +131,9 @@ export default function Navbar() {
           py-2 
           ml-64 
           pl-5 
-          peer
+          border-2
+        border-gray-500
+          rounded-md
           ${miniMenuDown ? "opacity-100" : "opacity-0"}
           ${miniMenuDown ? "bg-black" : "bg-netural-800"} w-32 transition-all ${
           miniMenuDown ? "h-auto" : "h-0"
@@ -152,6 +154,9 @@ export default function Navbar() {
       gap-3 
       py-2 
       w-32 
+      border-2
+      border-gray-500
+      rounded-md
       transition-all 
       ${profileMenuDown ? "opacity-100" : "opacity-0"}
       ${profileMenuDown ? "bg-black" : "bg-netural-800"} 
