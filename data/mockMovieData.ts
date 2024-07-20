@@ -8,7 +8,7 @@ const mockMovieData = [
     thumbnailUrl:
       "https://upload.wikimedia.org/wikipedia/commons/7/70/Big.Buck.Bunny.-.Opening.Screen.png",
     genre: "Comedy",
-    duration: "10 minutes",
+    duration: 10,
   },
   {
     title: "Sintel",
@@ -18,7 +18,7 @@ const mockMovieData = [
       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
     thumbnailUrl: "http://uhdtv.io/wp-content/uploads/2020/10/Sintel-3.jpg",
     genre: "Adventure",
-    duration: "15 minutes",
+    duration: 15,
   },
   {
     title: "Tears of Steel",
@@ -29,7 +29,7 @@ const mockMovieData = [
     thumbnailUrl:
       "https://mango.blender.org/wp-content/uploads/2013/05/01_thom_celia_bridge.jpg",
     genre: "Action",
-    duration: "12 minutes",
+    duration: 12,
   },
   {
     title: "Elephant's Dream",
@@ -39,7 +39,7 @@ const mockMovieData = [
       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
     thumbnailUrl: "https://download.blender.org/ED/cover.jpg",
     genre: "Sci-Fi",
-    duration: "15 minutes",
+    duration: 15,
   },
 ];
 
