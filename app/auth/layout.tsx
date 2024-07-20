@@ -1,18 +1,14 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Login",
-  description: "Login to your account",
+  title: "Auth",
+  description: "Authentication",
 };
 
-export default function AuthLayout({
+export default function ProfileLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+  return <>{children}</>;
 }

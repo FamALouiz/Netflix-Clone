@@ -1,22 +1,14 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Movies",
-  description: "Netflix Clone by Fam using Next.js",
+  description: "Watch your favorite movies",
 };
 
-export default function RootLayout({
+export default function ProfileLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  );
+  return <>{children}</>;
 }
