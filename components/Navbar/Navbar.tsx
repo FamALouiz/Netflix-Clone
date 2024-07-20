@@ -49,9 +49,9 @@ export default function Navbar() {
       },
     },
     {
-      title: "Films",
+      title: "Movies",
       onClick: () => {
-        router.push("/films");
+        router.push("/movies");
       },
     },
     {
