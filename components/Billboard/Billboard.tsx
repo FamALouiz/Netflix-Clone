@@ -1,3 +1,5 @@
+import { SlQuestion } from "react-icons/sl";
+
 export default function Billboard(props: BillboardProps) {
   const { movieData } = props;
   return (
@@ -16,7 +18,7 @@ export default function Billboard(props: BillboardProps) {
         poster={movieData.thumbnailUrl}
         src={movieData.videoUrl}
       />
-      <div className="flex flex-col absolute top-[40%] lg:top-[35%] left-[10%] text-wrap gap-5">
+      <div className="flex flex-col absolute top-[40%] left-[10%] text-wrap gap-5">
         <div className="w-1/4">
           <h2 className="text-white text-2xl lg:text-6xl font-bold">
             {movieData.title}
@@ -34,7 +36,10 @@ export default function Billboard(props: BillboardProps) {
               console.log("Test");
             }}
           >
-            Learn more
+            <div className="flex items-center gap-2">
+              Learn more
+              <SlQuestion className="w-5 h-5" />
+            </div>
           </button>
         </div>
       </div>
