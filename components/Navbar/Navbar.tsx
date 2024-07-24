@@ -72,58 +72,59 @@ export default function Navbar() {
   const toggleProfileMenuDown = () =>
     setProfileMenuDown((prevValue) => !prevValue);
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-start items-center w-full h-16 mt-2">
-        <img
-          src="/images/logo.png"
-          className="w-32 h-8 mx-20 cursor-pointer"
-          alt="Logo"
-          onClick={() => router.push("/")}
-        />
-        <div className="hidden lg:flex">
-          {miniScreenNavbarItemProps.map((props: any, idx: number) => {
-            return <NavbarItem {...props} key={idx} />;
-          })}
-        </div>
-        <div className="flex flex-col justify-start items-center">
-          <div className="flex justify-center items-center lg:hidden group">
-            <p
-              className=" text-white group-hover:cursor-pointer"
-              onClick={toggleMiniMenuDown}
-            >
-              Browse
-            </p>
-            {miniMenuDown && (
-              <SlArrowUp
-                className="navbar-icon mt-2"
-                onClick={toggleMiniMenuDown}
-              />
-            )}
-            {!miniMenuDown && (
-              <SlArrowDown
-                className="navbar-icon mt-2"
-                onClick={toggleMiniMenuDown}
-              />
-            )}
+    <div className="absolute w-full">
+      <div className="flex flex-col">
+        <div className="flex justify-start items-center w-full h-16 mt-2">
+          <img
+            src="/images/logo.png"
+            className="w-32 h-8 mx-20 cursor-pointer"
+            alt="Logo"
+            onClick={() => router.push("/")}
+          />
+          <div className="hidden lg:flex">
+            {miniScreenNavbarItemProps.map((props: any, idx: number) => {
+              return <NavbarItem {...props} key={idx} />;
+            })}
           </div>
-        </div>
-        <div className="flex flex-grow justify-end items-center mx-20 gap-5">
-          <SlMagnifier className="navbar-icon" />
-          <SlBell className="navbar-icon" />
-          <div
-            className="flex items-center gap-1 group"
-            onClick={toggleProfileMenuDown}
-          >
-            <MiniProfileIcon src="/images/profile-icon.jpg" alt="Avatar" />
-            <div className="navbar-icon  group-hover:cursor-pointer">
-              {!profileMenuDown && <SlArrowDown />}
-              {profileMenuDown && <SlArrowUp />}
+          <div className="flex flex-col justify-start items-center">
+            <div className="flex justify-center items-center lg:hidden group">
+              <p
+                className=" text-white group-hover:cursor-pointer"
+                onClick={toggleMiniMenuDown}
+              >
+                Browse
+              </p>
+              {miniMenuDown && (
+                <SlArrowUp
+                  className="navbar-icon mt-2"
+                  onClick={toggleMiniMenuDown}
+                />
+              )}
+              {!miniMenuDown && (
+                <SlArrowDown
+                  className="navbar-icon mt-2"
+                  onClick={toggleMiniMenuDown}
+                />
+              )}
+            </div>
+          </div>
+          <div className="flex flex-grow justify-end items-center mx-20 gap-5">
+            <SlMagnifier className="navbar-icon" />
+            <SlBell className="navbar-icon" />
+            <div
+              className="flex items-center gap-1 group"
+              onClick={toggleProfileMenuDown}
+            >
+              <MiniProfileIcon src="/images/profile-icon.jpg" alt="Avatar" />
+              <div className="navbar-icon  group-hover:cursor-pointer">
+                {!profileMenuDown && <SlArrowDown />}
+                {profileMenuDown && <SlArrowUp />}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        className={`
+        <div
+          className={`
           drop-down
           lg:hidden 
           gap-3 
@@ -133,26 +134,27 @@ export default function Navbar() {
           ${miniMenuDown ? "opacity-100" : "opacity-0"}
           ${miniMenuDown ? "bg-black" : "bg-netural-800"} 
           ${miniMenuDown ? "h-auto" : "h-0"}`}
-      >
-        <NavbarMiniMenu
-          items={miniScreenNavbarItemProps}
-          menuDown={miniMenuDown}
-        />
-      </div>
-      <div className="flex justify-end">
-        <div
-          className={`drop-down
+        >
+          <NavbarMiniMenu
+            items={miniScreenNavbarItemProps}
+            menuDown={miniMenuDown}
+          />
+        </div>
+        <div className="flex justify-end">
+          <div
+            className={`drop-down
       mr-16  
       gap-3 
       py-2 
       ${profileMenuDown ? "opacity-100" : "opacity-0"}
       ${profileMenuDown ? "bg-black" : "bg-netural-800"} 
       ${profileMenuDown ? "h-auto" : "h-0"}`}
-        >
-          <NavbarMiniMenu
-            items={profileMenuItemProps}
-            menuDown={profileMenuDown}
-          />
+          >
+            <NavbarMiniMenu
+              items={profileMenuItemProps}
+              menuDown={profileMenuDown}
+            />
+          </div>
         </div>
       </div>
     </div>
