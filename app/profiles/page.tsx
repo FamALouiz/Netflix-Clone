@@ -10,6 +10,8 @@ export default function ProfilePage() {
     const userId = checkIfUserIsSignedInAndCookieSaved();
     if (!userId) {
       router.push("/auth");
+    } else {
+      router.push(`/profiles/${userId}`);
     }
   }, []);
 
