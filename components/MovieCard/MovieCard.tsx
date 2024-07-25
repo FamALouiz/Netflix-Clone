@@ -1,7 +1,17 @@
+import { useRouter } from "next/navigation";
 import { SlControlPlay } from "react-icons/sl";
-export default function MovieCard(props: MovieData) {
-  const { title, description, videoUrl, thumbnailUrl, genre, duration } = props;
 
+export default function MovieCard(props: MovieData) {
+  const router = useRouter();
+  const { id, title, description, videoUrl, thumbnailUrl, genre, duration } =
+    props;
+
+  const handleOnClick = () => {
+    if (!id) {
+      throw new Error("Movie id is incorrect please try again later");
+    }
+    router.push(`/movies/${id}`);
+  };
   return (
     <div className="group w-[1/4]">
       <img
@@ -17,6 +27,7 @@ export default function MovieCard(props: MovieData) {
                   group-hover:opacity-80`}
         src={thumbnailUrl}
         alt={title + " thumbnail"}
+        onClick={handleOnClick}
       />
       <div
         className="opacity-0 
@@ -35,10 +46,18 @@ export default function MovieCard(props: MovieData) {
       transition-all 
       duration-150"
       >
-        <h2 className="text-neutral-300 text-lg font-bold">{title}</h2>
+        <h2
+          className="text-neutral-300 text-lg font-bold cursor-pointer"
+          onClick={handleOnClick}
+        >
+          {title}
+        </h2>
         <div className="flex justify-start gap-2">
           <div className="flex justify-center items-center bg-neutral-300 w-6 h-6 rounded-full">
-            <SlControlPlay className="ml-0.5 cursor-pointer" />
+            <SlControlPlay
+              className="ml-0.5 cursor-pointer"
+              onClick={handleOnClick}
+            />
           </div>
           <p className="text-neutral-300">
             <b className="text-green-400">New</b> 2023
