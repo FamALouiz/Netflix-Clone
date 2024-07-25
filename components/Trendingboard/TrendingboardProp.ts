@@ -1,0 +1,3 @@
+interface TrendingboardProp {
+  movieData: MovieData[];
+}
