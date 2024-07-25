@@ -3,7 +3,8 @@
 import TextInput from "@/components/TextInput/TextInput";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import checkIfUserIsSignedInAndCookieSaved from "../handlers";
 
 export default function AuthPage() {
   // States
@@ -71,6 +72,14 @@ export default function AuthPage() {
 
   // Adding event listener for Enter key
   window.addEventListener("keydown", handleEnterClicked);
+
+  useEffect(() => {
+    const userId = checkIfUserIsSignedInAndCookieSaved();
+
+    if (userId) {
+      router.push(`/profiles/${userId}`);
+    }
+  }, []);
 
   return (
     <div className="h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
