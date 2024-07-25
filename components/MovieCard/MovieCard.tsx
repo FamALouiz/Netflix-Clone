@@ -1,17 +1,67 @@
+import axios from "axios";
 import { useRouter } from "next/navigation";
-import { SlControlPlay } from "react-icons/sl";
-
+import { useEffect, useState } from "react";
+import { SlControlPlay, SlHeart, SlPlus } from "react-icons/sl";
 export default function MovieCard(props: MovieData) {
   const router = useRouter();
   const { id, title, description, videoUrl, thumbnailUrl, genre, duration } =
     props;
 
+  const [favorite, setFavorite] = useState(false);
   const handleOnClick = () => {
     if (!id) {
       throw new Error("Movie id is incorrect please try again later");
     }
     router.push(`/movies/${id}`);
   };
+
+  const handleToggleFavorite = () => {
+    const url = process.env.NEXT_PUBLIC_FAVORITES_URL || "";
+    const userId = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("userId"))
+      ?.split("=")[1];
+
+    console.log(userId);
+
+    if (!userId) {
+      router.push("/auth");
+      return;
+    }
+
+    axios
+      .put(`${url}${userId}?movieId=${id}`)
+      .then((response) => {
+        if (response.status !== 200 && response.status !== 201) {
+          throw new Error("Error while updating favorite");
+        }
+        setFavorite((prevValue) => !prevValue);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    const url = process.env.NEXT_PUBLIC_FAVORITE_URL || "";
+    const userId = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("userId"))
+      ?.split("=")[1];
+
+    if (!userId) {
+      router.push("/auth");
+      return;
+    }
+
+    axios
+      .get(`${url}${userId}?movieId=${id}`)
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error("Error while fetching favorite");
+        }
+        setFavorite(response.data.status);
+      })
+      .catch((error) => console.log(error));
+  }, []);
   return (
     <div className="group w-[1/4]">
       <img
@@ -46,6 +96,20 @@ export default function MovieCard(props: MovieData) {
       transition-all 
       duration-150"
       >
+        {!favorite && (
+          <SlPlus
+            className="w-5 h-5 absolute right-4 top-4 cursor-pointer"
+            fill="white"
+            onClick={handleToggleFavorite}
+          />
+        )}
+        {favorite && (
+          <SlHeart
+            className="w-5 h-5 absolute right-4 top-4 cursor-pointer"
+            fill="red"
+            onClick={handleToggleFavorite}
+          />
+        )}
         <h2
           className="text-neutral-300 text-lg font-bold cursor-pointer"
           onClick={handleOnClick}
