@@ -3,6 +3,7 @@ interface BillboardProps {
 }
 
 interface MovieData {
+  id: number;
   title: string;
   description: string;
   videoUrl: string;
