@@ -41,7 +41,7 @@ export default function AuthPage() {
 
           // Save cookie with data for 1 minute
           const expirationTime = new Date();
-          expirationTime.setMinutes(expirationTime.getMinutes() + 1);
+          expirationTime.setMinutes(expirationTime.getMinutes() + 10);
           document.cookie = `userId=${userId}; expires=${expirationTime.toUTCString()}`;
 
           // Redirect to profile page
