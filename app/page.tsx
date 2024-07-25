@@ -47,11 +47,18 @@ export default function Home() {
   return (
     randomMovie && (
       <>
-        {/* Billboard component */}
-        <Billboard movieData={movieData[randomMovie]} />
+        <div>
+          {/* Billboard component */}
+          <Billboard movieData={movieData[randomMovie]} />
 
-        {/* Navbar component */}
-        <Navbar />
+          {/* Navbar component */}
+          <Navbar />
+        </div>
+
+        {/* Main content */}
+        <div className="relative">
+          <h1 className="text-white">Test</h1>
+        </div>
       </>
     )
   );

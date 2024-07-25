@@ -3,7 +3,7 @@ import { SlQuestion } from "react-icons/sl";
 export default function Billboard(props: BillboardProps) {
   const { movieData } = props;
   return (
-    <div className="absolute w-full -translate-y-28">
+    <div className="relative w-full -translate-y-28">
       <video
         className="w-full 
         h-[97.5vh]

@@ -72,7 +72,7 @@ export default function Navbar() {
   const toggleProfileMenuDown = () =>
     setProfileMenuDown((prevValue) => !prevValue);
   return (
-    <div className="absolute w-full">
+    <div className="absolute w-full top-[1%]">
       <div className="flex flex-col">
         <div className="flex justify-start items-center w-full h-16 mt-2">
           <img
