@@ -1,7 +1,14 @@
+import { useRouter } from "next/navigation";
 import { SlQuestion } from "react-icons/sl";
 
 export default function Billboard(props: BillboardProps) {
+  const router = useRouter();
   const { movieData } = props;
+
+  const handleOnClick = () => {
+    router.push(`/movies/${movieData.id}`);
+  };
+
   return (
     <div className="relative w-full -translate-y-28">
       <video
@@ -33,9 +40,7 @@ export default function Billboard(props: BillboardProps) {
         <div className="w-1/4">
           <button
             className="bg-white opacity-60 text-black text-sm lg:text-lg font-semibold py-2 px-4 rounded-lg mt-6 hover:opacity-100"
-            onClick={() => {
-              console.log("Test");
-            }}
+            onClick={handleOnClick}
           >
             <div className="flex items-center gap-2">
               Learn more
