@@ -6,7 +6,7 @@ export default function Billboard(props: BillboardProps) {
     <div className="relative w-full -translate-y-28">
       <video
         className="w-full 
-        h-[97.5vh]
+        h-[95vh]
         object-cover
         brightness-60
         transition
