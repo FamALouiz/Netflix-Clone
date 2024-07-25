@@ -25,6 +25,7 @@ export default function Home() {
         .then((response) => {
           const data = response.data;
           const moviesData = data.map((data: any) => ({
+            id: data.id,
             title: data.title,
             description: data.description,
             videoUrl: data.video_url,
@@ -62,8 +63,8 @@ export default function Home() {
             Trending Now
           </h2>
           <div className="flex justify-center gap-2 w-full">
-            {movieData.map((movie: any, index: number) => {
-              return <MovieCard key={index} {...movie} />;
+            {movieData.map((movie: any) => {
+              return <MovieCard key={movie.id} {...movie} />;
             })}
           </div>
         </div>
