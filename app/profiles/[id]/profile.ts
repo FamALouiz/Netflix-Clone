@@ -1,7 +1,7 @@
 interface Profile {
   firstName: string;
   lastName: string;
-  id?: Number;
+  id: number;
 }
 
 export default Profile;
