@@ -17,6 +17,7 @@ export default function ProfilePage() {
       .then((response) => {
         const profiles = response.data.map((profile: any) => {
           return {
+            id: profile.id,
             firstName: profile.first_name,
             lastName: profile.last_name,
           };
@@ -35,6 +36,7 @@ export default function ProfilePage() {
         {profiles.map((profile: Profile) => {
           return (
             <ProfileIcon
+              id={profile.id}
               firstName={profile.firstName}
               lastName={profile.lastName}
             />
