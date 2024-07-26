@@ -7,8 +7,8 @@ import Profile from "./profile";
 import ProfileIcon from "@/components/ProfileIcon/ProfileIcon/ProfileIcon";
 
 export default function ProfilePage() {
-  const [profiles, setProfiles] = useState([]);
-  const { id } = useParams();
+  const [profiles, setProfiles] = useState<Profile[]>([]);
+  const { id }: { id: string } = useParams();
 
   useEffect(() => {
     const url = process.env.NEXT_PUBLIC_PROFILE_URL || "";
