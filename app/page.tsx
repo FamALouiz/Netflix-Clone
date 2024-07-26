@@ -10,15 +10,13 @@ import Trendingboard from "@/components/Trendingboard/Trendingboard";
 
 export default function Home() {
   const router = useRouter();
-  const [userId, setUserId] = useState("");
-  const [movieData, setMovieData] = useState([]);
-  const [randomMovie, setRandomMovie] = useState(0);
+  const [movieData, setMovieData] = useState<MovieData[]>([]);
+  const [randomMovie, setRandomMovie] = useState<number>(0);
 
   useEffect(() => {
     // Check if user is signed in and cookie is saved with user id
     const userId = checkIfUserIsSignedInAndCookieSaved();
     if (userId) {
-      setUserId(userId);
       const url = process.env.NEXT_PUBLIC_MOVIES_URL || "";
 
       axios
