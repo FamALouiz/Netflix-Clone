@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function MoviesHomePage() {
-  const [moviesData, setMoviesData] = useState([]);
+  const [moviesData, setMoviesData] = useState<MovieData[]>([]);
   useEffect(() => {
     const url = process.env.NEXT_PUBLIC_MOVIES_URL || "";
 
@@ -28,7 +28,7 @@ export default function MoviesHomePage() {
 
   return (
     <div>
-      {moviesData.map((movie: any, idx: number) => (
+      {moviesData.map((movie: MovieData, idx: number) => (
         <div key={idx}>
           <p className="text-white">
             {movie.title} - {movie.description}
