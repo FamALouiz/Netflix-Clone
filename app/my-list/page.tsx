@@ -10,7 +10,7 @@ export default function MyListPage() {
   const [favoriteMoveData, setFavoriteMoveData] = useState<MovieData[]>([]);
 
   useEffect(() => {
-    let mounted = false;
+    let mounted: boolean = false;
 
     const userId = checkIfUserIsSignedInAndCookieSaved();
 
@@ -25,7 +25,6 @@ export default function MyListPage() {
       .then((response) => {
         const data = response.data;
         let movieUrl = process.env.NEXT_PUBLIC_MOVIE_URL || "";
-        console.log(data.favorites);
 
         for (let favorite of data.favorites) {
           axios
