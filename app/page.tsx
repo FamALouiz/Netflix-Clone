@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar/Navbar";
 import Billboard from "@/components/Billboard/Billboard";
 import axios from "axios";
-import MovieCard from "@/components/MovieCard/MovieCard";
 import Trendingboard from "@/components/Trendingboard/Trendingboard";
 
 export default function Home() {
