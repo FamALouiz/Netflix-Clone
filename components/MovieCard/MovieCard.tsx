@@ -4,18 +4,17 @@ import { useEffect, useState } from "react";
 import { SlControlPlay, SlHeart, SlPlus } from "react-icons/sl";
 export default function MovieCard(props: MovieData) {
   const router = useRouter();
-  const { id, title, description, videoUrl, thumbnailUrl, genre, duration } =
-    props;
+  const { id, title, thumbnailUrl, duration } = props;
+  const [favorite, setFavorite] = useState<boolean>(false);
 
-  const [favorite, setFavorite] = useState(false);
-  const handleOnClick = () => {
+  const handleOnClick: () => void = () => {
     if (!id) {
       throw new Error("Movie id is incorrect please try again later");
     }
     router.push(`/movies/${id}`);
   };
 
-  const handleToggleFavorite = () => {
+  const handleToggleFavorite: () => void = () => {
     const url = process.env.NEXT_PUBLIC_FAVORITES_URL || "";
     const userId = document.cookie
       .split("; ")

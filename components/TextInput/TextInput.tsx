@@ -3,7 +3,7 @@ import TextInputProp from "./TextInputProp";
 
 export default function TextInput(params: TextInputProp) {
   const { placeHolder, type, onChange } = params;
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState<string>("");
   return (
     <div className="flex justify-center py-2">
       <input

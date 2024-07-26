@@ -6,13 +6,14 @@ import NavbarItem from "./NavbarItem/NavbarItem";
 import NavbarMiniMenu from "./NavbarMiniMenu/NavbarMiniMenu";
 import "../../public/styles/Navbar.css";
 import MiniProfileIcon from "../ProfileIcon/MiniProfileIcon/MiniProfileIcon";
+import NavbarItemProps from "./NavbarItem/NavbarItemProp";
 
 export default function Navbar() {
   const router = useRouter();
-  const [miniMenuDown, setMiniMenuDown] = useState(false);
-  const [profileMenuDown, setProfileMenuDown] = useState(false);
+  const [miniMenuDown, setMiniMenuDown] = useState<boolean>(false);
+  const [profileMenuDown, setProfileMenuDown] = useState<boolean>(false);
 
-  const profileMenuItemProps = [
+  const profileMenuItemProps: NavbarItemProps[] = [
     {
       title: "User",
       onClick: () => {
@@ -35,7 +36,7 @@ export default function Navbar() {
     },
   ];
 
-  const miniScreenNavbarItemProps = [
+  const miniScreenNavbarItemProps: NavbarItemProps[] = [
     {
       title: "Home",
       onClick: () => {
@@ -68,8 +69,9 @@ export default function Navbar() {
     },
   ];
 
-  const toggleMiniMenuDown = () => setMiniMenuDown((prevValue) => !prevValue);
-  const toggleProfileMenuDown = () =>
+  const toggleMiniMenuDown: () => void = () =>
+    setMiniMenuDown((prevValue) => !prevValue);
+  const toggleProfileMenuDown: () => void = () =>
     setProfileMenuDown((prevValue) => !prevValue);
   return (
     <div className="absolute w-full top-[1%]">
@@ -143,12 +145,12 @@ export default function Navbar() {
         <div className="flex justify-end">
           <div
             className={`drop-down
-      mr-16  
-      gap-3 
-      py-2 
-      ${profileMenuDown ? "opacity-100" : "opacity-0"}
-      ${profileMenuDown ? "bg-black" : "bg-netural-800"} 
-      ${profileMenuDown ? "h-auto" : "h-0"}`}
+            mr-16  
+            gap-3 
+            py-2 
+            ${profileMenuDown ? "opacity-100" : "opacity-0"}
+            ${profileMenuDown ? "bg-black" : "bg-netural-800"} 
+            ${profileMenuDown ? "h-auto" : "h-0"}`}
           >
             <NavbarMiniMenu
               items={profileMenuItemProps}

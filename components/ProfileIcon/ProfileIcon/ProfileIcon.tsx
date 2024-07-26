@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation";
 import ProfileIconProp from "./ProfileIconProp";
 
 export default function ProfileIcon(props: ProfileIconProp) {
-  const { id, firstName, lastName, color } = props;
+  const { id, firstName, lastName } = props;
   const router = useRouter();
 
   const handleOnClick = (e: any) => {
