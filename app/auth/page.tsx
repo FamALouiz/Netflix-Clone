@@ -5,18 +5,14 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import checkIfUserIsSignedInAndCookieSaved from "../handlers";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export default function AuthPage() {
   // States
-  const [rememberMe, setRememberMe]: [
-    boolean,
-    Dispatch<SetStateAction<boolean>>
-  ] = useState(false);
-  const [email, setEmail]: [string, Dispatch<SetStateAction<string>>] =
-    useState("");
-  const [password, setPassword]: [string, Dispatch<SetStateAction<string>>] =
-    useState("");
-  const router = useRouter();
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const router: AppRouterInstance = useRouter();
 
   // Handlers
   const handleSignIn: () => void = () => {
@@ -38,7 +34,7 @@ export default function AuthPage() {
       .post(signInURL, payload)
       .then((response) => {
         if (response.status === 200 || response.status === 201) {
-          const userId = response.data.userId;
+          const userId: number = response.data.userId;
 
           // Save cookie with data for 1 minute
           const expirationTime = new Date();
@@ -64,7 +60,7 @@ export default function AuthPage() {
     console.log("Sign Up");
   };
 
-  const handleEnterClicked = (e: KeyboardEvent) => {
+  const handleEnterClicked: (e: KeyboardEvent) => void = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       handleSignIn();
     }
