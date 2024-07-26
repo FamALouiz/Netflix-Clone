@@ -13,7 +13,7 @@ export default function MoviePage() {
     genre: "",
     duration: 0,
   });
-  const { id } = useParams();
+  const { id }: { id: string } = useParams();
 
   useEffect(() => {
     const url: string = process.env.NEXT_PUBLIC_MOVIE_URL || "";
