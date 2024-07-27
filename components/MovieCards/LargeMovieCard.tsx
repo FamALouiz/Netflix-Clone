@@ -17,9 +17,9 @@ export default function LargeMovieCard(props: { movieData: MovieData }) {
           onClick={handleOnClick}
         />
       </div>
-      <div className="flex flex-col justify-around my-2 gap-2 w-3/4 text-white">
+      <div className="flex flex-col justify-around grow my-2 gap-2 w-3/4 text-white">
         <h1
-          className="text-xl font-bold hover:underline cursor-pointer"
+          className="text-xl font-bold hover:underline cursor-pointer w-fit"
           onClick={handleOnClick}
         >
           {movieData.title}
