@@ -2,7 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SlControlPlay, SlHeart, SlPlus } from "react-icons/sl";
-export default function MovieCard(props: MovieData) {
+export default function MiniMovieCard(props: MovieData) {
   const router = useRouter();
   const { id, title, thumbnailUrl, duration } = props;
   const [favorite, setFavorite] = useState<boolean>(false);

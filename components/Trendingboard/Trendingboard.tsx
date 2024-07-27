@@ -1,4 +1,4 @@
-import MovieCard from "../MovieCard/MovieCard";
+import MiniMovieCard from "../MovieCards/MiniMovieCard";
 
 export default function Trendingboard(props: TrendingboardProp) {
   const { movieData } = props;
@@ -9,7 +9,7 @@ export default function Trendingboard(props: TrendingboardProp) {
       </h2>
       <div className="flex justify-center gap-2 w-full">
         {movieData.map((movie: any) => {
-          return <MovieCard key={movie.id} {...movie} />;
+          return <MiniMovieCard key={movie.id} {...movie} />;
         })}
       </div>
     </div>
