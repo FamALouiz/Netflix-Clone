@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import checkIfUserIsSignedInAndCookieSaved from "../handlers";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Navbar from "@/components/Navbar/Navbar";
+import LargeMovieCard from "@/components/MovieCards/LargeMovieCard";
 
 export default function MyListPage() {
   const router = useRouter();
@@ -56,20 +58,18 @@ export default function MyListPage() {
   }, []);
 
   return (
-    <div>
-      <h1 className="text-white">My List</h1>
-      <div className="text-white">
-        {favoriteMoveData.map((data, idx) => {
-          return (
-            <div key={idx}>
-              <h2>{data.title}</h2>
-              <p>{data.description}</p>
-              <p>{data.genre}</p>
-              <p>{data.duration}</p>
-            </div>
-          );
-        })}
+    <>
+      <Navbar />
+      <div className="flex">
+        <div className="mt-28">
+          <h1 className="text-2xl font-bold text-white mx-16">My List</h1>
+          <div className="flex flex-col justify-start w-[90%]">
+            {favoriteMoveData.map((data) => {
+              return <LargeMovieCard movieData={data} />;
+            })}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
