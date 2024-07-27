@@ -54,11 +54,21 @@ export default function LargeMovieCard(props: { movieData: MovieData }) {
           >
             {movieData.title}
           </h1>
-          <div className="flex flex-grow justify-end w-5 h-5 mx-5 cursor-pointer">
+          <div className="flex flex-grow justify-end w-5 h-5 mx-5">
             {!favorite && (
-              <SlPlus fill="white" onClick={handleToggleFavorite} />
+              <SlPlus
+                className="cursor-pointer"
+                fill="white"
+                onClick={handleToggleFavorite}
+              />
             )}
-            {favorite && <SlHeart fill="red" onClick={handleToggleFavorite} />}
+            {favorite && (
+              <SlHeart
+                className="cursor-pointer"
+                fill="red"
+                onClick={handleToggleFavorite}
+              />
+            )}
           </div>
         </div>
         <div>
@@ -67,7 +77,14 @@ export default function LargeMovieCard(props: { movieData: MovieData }) {
         </div>
         <div className="flex gap-2 text-gray-400">
           <p className="text-sm">Genres: </p>
-          <p className="text-sm">{movieData.genre}</p>
+          <p
+            className="text-sm hover:underline cursor-pointer"
+            onClick={() => {
+              router.push(`/genres/${movieData.genre}`);
+            }}
+          >
+            {movieData.genre}
+          </p>
         </div>
       </div>
     </div>
