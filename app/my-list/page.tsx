@@ -6,8 +6,11 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import Navbar from "@/components/Navbar/Navbar";
 import LargeMovieCard from "@/components/MovieCards/LargeMovieCard";
+import { FaSortAlphaUp } from "react-icons/fa";
+import { FaSortAlphaDown } from "react-icons/fa";
 
 export default function MyListPage() {
+  const [ascending, setAscending] = useState(true);
   const router = useRouter();
   const [favoriteMoveData, setFavoriteMoveData] = useState<MovieData[]>([]);
 
@@ -60,14 +63,31 @@ export default function MyListPage() {
   return (
     <>
       <Navbar />
-      <div className="flex">
-        <div className="mt-28">
-          <h1 className="text-2xl font-bold text-white mx-16">My List</h1>
-          <div className="flex flex-col justify-start w-[90%]">
-            {favoriteMoveData.map((data) => {
-              return <LargeMovieCard movieData={data} />;
-            })}
+      <div className="mt-28">
+        <div className="flex justify-between ml-16 mr-24">
+          <h1 className="text-2xl font-bold text-white ">My List</h1>
+          <div
+            className="flex text-white items-center gap-2 cursor-pointer"
+            onClick={() => setAscending((prev) => !prev)}
+          >
+            <h1>Sort</h1>
+            {ascending ? (
+              <FaSortAlphaUp className="w-5 h-5" />
+            ) : (
+              <FaSortAlphaDown className="w-5 h-5" />
+            )}
           </div>
+        </div>
+        <div className="flex flex-col justify-start w-[90%] transition-height duration-150">
+          {favoriteMoveData
+            .sort((a, b) =>
+              ascending
+                ? a.title.localeCompare(b.title)
+                : -a.title.localeCompare(b.title)
+            )
+            .map((data) => {
+              return <LargeMovieCard movieData={data} key={data.id} />;
+            })}
         </div>
       </div>
     </>
