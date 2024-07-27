@@ -2,10 +2,10 @@
 
 import TextInput from "@/components/TextInput/TextInput";
 import axios from "axios";
-import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import checkIfUserIsSignedInAndCookieSaved from "../handlers";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import checkIfUserIsSignedInAndCookieSaved from "../handlers";
 
 export default function AuthPage() {
   // States

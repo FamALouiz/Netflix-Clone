@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import checkIfUserIsSignedInAndCookieSaved from "../handlers";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import Navbar from "@/components/Navbar/Navbar";
 import LargeMovieCard from "@/components/MovieCards/LargeMovieCard";
-import { FaSortAlphaUp } from "react-icons/fa";
-import { FaSortAlphaDown } from "react-icons/fa";
+import Navbar from "@/components/Navbar/Navbar";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { FaSortAlphaDown, FaSortAlphaUp } from "react-icons/fa";
+import checkIfUserIsSignedInAndCookieSaved from "../handlers";
 
 export default function MyListPage() {
   const [ascending, setAscending] = useState(true);

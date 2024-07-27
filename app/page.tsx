@@ -1,11 +1,11 @@
 "use client";
+import Billboard from "@/components/Billboard/Billboard";
+import Navbar from "@/components/Navbar/Navbar";
+import Trendingboard from "@/components/Trendingboard/Trendingboard";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import checkIfUserIsSignedInAndCookieSaved from "./handlers";
-import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Billboard from "@/components/Billboard/Billboard";
-import axios from "axios";
-import Trendingboard from "@/components/Trendingboard/Trendingboard";
 
 export default function Home() {
   const router = useRouter();

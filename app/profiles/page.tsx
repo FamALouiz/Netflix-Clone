@@ -1,8 +1,8 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import checkIfUserIsSignedInAndCookieSaved from "../handlers";
-import { useRouter } from "next/navigation";
 
 export default function ProfilePage() {
   const router = useRouter();

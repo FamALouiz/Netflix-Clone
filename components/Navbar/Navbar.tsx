@@ -1,12 +1,11 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { SlArrowDown, SlArrowUp, SlMagnifier } from "react-icons/sl";
-import { SlBell } from "react-icons/sl";
-import NavbarItem from "./NavbarItem/NavbarItem";
-import NavbarMiniMenu from "./NavbarMiniMenu/NavbarMiniMenu";
+import { SlArrowDown, SlArrowUp, SlBell, SlMagnifier } from "react-icons/sl";
 import "../../public/styles/Navbar.css";
 import MiniProfileIcon from "../ProfileIcon/MiniProfileIcon/MiniProfileIcon";
+import NavbarItem from "./NavbarItem/NavbarItem";
 import NavbarItemProps from "./NavbarItem/NavbarItemProp";
+import NavbarMiniMenu from "./NavbarMiniMenu/NavbarMiniMenu";
 
 export default function Navbar() {
   const router = useRouter();

@@ -1,10 +1,10 @@
 "use client";
 
+import ProfileIcon from "@/components/ProfileIcon/ProfileIcon/ProfileIcon";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Profile from "./profile";
-import ProfileIcon from "@/components/ProfileIcon/ProfileIcon/ProfileIcon";
 
 export default function ProfilePage() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
