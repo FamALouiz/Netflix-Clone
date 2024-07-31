@@ -60,7 +60,7 @@ export default function LargeMovieCard(props: { movieData: MovieData }) {
   }, []);
 
   return (
-    <div className="flex bg-neutral-700 my-3 mx-16 w-full h-full rounded-md gap-5">
+    <div className="flex bg-neutral-700 my-3 mx-16 w-full h-full rounded-md gap-5 hover:scale-[101%]">
       <div className="w-1/3 h-1/5">
         <img
           src={movieData.thumbnailUrl}
