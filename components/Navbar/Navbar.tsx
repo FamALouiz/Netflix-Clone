@@ -6,6 +6,7 @@ import MiniProfileIcon from "../ProfileIcon/MiniProfileIcon/MiniProfileIcon";
 import NavbarItem from "./NavbarItem/NavbarItem";
 import NavbarItemProps from "./NavbarItem/NavbarItemProp";
 import NavbarMiniMenu from "./NavbarMiniMenu/NavbarMiniMenu";
+import Logo from "../Logo/Logo";
 
 export default function Navbar() {
   const router = useRouter();
@@ -76,12 +77,7 @@ export default function Navbar() {
     <div className="absolute w-full top-[1%]">
       <div className="flex flex-col">
         <div className="flex justify-start items-center w-full h-16 mt-2">
-          <img
-            src="/images/logo.png"
-            className="w-32 h-8 mx-20 cursor-pointer"
-            alt="Logo"
-            onClick={() => router.push("/")}
-          />
+          <Logo />
           <div className="hidden lg:flex">
             {miniScreenNavbarItemProps.map((props: any, idx: number) => {
               return <NavbarItem {...props} key={idx} />;
